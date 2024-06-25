@@ -128,3 +128,34 @@ const promptAddEmployee = async () => {
   ]);
   await addEmployee(answers.first_name, answers.last_name, answers.role, answers.manager);
 };
+
+// prompt to update an employee's role
+const promptUpdateEmployeeRole = async () => {
+  const employees = await viewEmployees();
+  const employeeNames = employees.map(emp => `${emp.first_name} ${emp.last_name}`);
+  const roles = await viewRoles();
+  const roleTitles = roles.map(role => role.title);
+  const answers = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'employee',
+      message: 'Select the employee to update:',
+      choices: employeeNames,
+    },
+    {
+      type: 'list',
+      name: 'role',
+      message: 'Select the new role for the employee:',
+      choices: roleTitles,
+    },
+    {
+      type: 'list',
+      name: 'manager',
+      message: 'Select the new manager for the employee:',
+      choices: employeeNames, // Assuming managers are also employees
+    },
+  ]);
+  await updateEmployeeRole(answers.employee, answers.role, answers.manager);
+};
+// start the application
+mainMenu();
