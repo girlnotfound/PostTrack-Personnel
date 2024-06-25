@@ -34,12 +34,11 @@ const viewRoles = async () => {
 // function to view all employees
 const viewEmployees = async () => {
   try {
-    const res = await pool.query(`SELECT e.id, e.first_name, e.last_name, r.title, r.salary, d.name AS department,
-    e.manager_id, m.first_name || ' ' || m.last_name AS manager
-    FROM employee e
-    LEFT JOIN employee m ON e.manager_id = m.id
-    JOIN role r ON e.role_id = r.id
-    JOIN department d ON r.department_id = d.id`); // run query to get all employees with their roles, departments, and managers
+    const res = await pool.query(`
+      SELECT e.id, e.first_name, e.last_name, r.title, r.salary
+      FROM employee e
+      JOIN role r ON e.role_id = r.id
+    `);
     return res.rows; // return results
   } catch (err) {
     console.error('Error executing query', err.stack); // log errors
