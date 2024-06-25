@@ -60,3 +60,71 @@ const mainMenu = async () => {
   }
   mainMenu(); // loop back to main menu after an action is completed
 };
+
+// prompt to add a new department
+const promptAddDepartment = async () => {
+  const answer = await inquirer.prompt({
+    type: 'input',
+    name: 'name',
+    message: 'Enter the name of the new department:',
+  });
+  await addDepartment(answer.name);
+};
+
+// prompt to add a new role
+const promptAddRole = async () => {
+  const departments = await viewDepartments();
+  const departmentNames = departments.map(dep => dep.name);
+  const answers = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'title',
+      message: 'Enter the title of the new role:',
+    },
+    {
+      type: 'input',
+      name: 'salary',
+      message: 'Enter the salary for the new role:',
+    },
+    {
+      type: 'list',
+      name: 'department',
+      message: 'Select the department for the new role:',
+      choices: departmentNames,
+    },
+  ]);
+  await addRole(answers.title, answers.salary, answers.department);
+};
+
+// prompt to add a new employee
+const promptAddEmployee = async () => {
+  const roles = await viewRoles();
+  const roleTitles = roles.map(role => role.title);
+  const managers = await viewEmployees();
+  const managerNames = managers.map(mgr => `${mgr.first_name} ${mgr.last_name}`);
+  const answers = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'first_name',
+      message: 'Enter the first name of the new employee:',
+    },
+    {
+      type: 'input',
+      name: 'last_name',
+      message: 'Enter the last name of the new employee:',
+    },
+    {
+      type: 'list',
+      name: 'role',
+      message: 'Select the role for the new employee:',
+      choices: roleTitles,
+    },
+    {
+      type: 'list',
+      name: 'manager',
+      message: 'Select the manager for the new employee:',
+      choices: managerNames,
+    },
+  ]);
+  await addEmployee(answers.first_name, answers.last_name, answers.role, answers.manager);
+};
