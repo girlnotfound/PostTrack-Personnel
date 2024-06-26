@@ -6,7 +6,7 @@ PostTrack Personnel is a command-line application that allows users to manage th
 
 - View all roles: Users can explore a table displaying job titles, role IDs, associated departments, and the respective salaries for each role.
 
-- View all employees: Users can check out a detailed table with employee information including IDs, names, job titles and their salaries.
+- View all employees: Users can check out a detailed table with employee information including IDs, names, job titles, salaries and managers.
 
 - Add a department: Users can enter the name of the new department and add it to the database.
 
@@ -42,9 +42,9 @@ To install PostTrack Personnel:
 
 - Follow the prompts to navigate through the menu options.
 
-[Link to Walk Through Video](https://app.screencastify.com/v3/watch/fAO0H24Z3NlBIzLYaf9O)
+[Link to Walk Through Video](https://app.screencastify.com/v3/watch/NfOFoTpcZCXmqTFRsp7q)
 
-![Screenshot of PostTrack Personel](./images/Screenshot-PostTrack-Personnel.png)
+![Screenshot of PostTrack Personel](./images/PostTrack-Personnel-Screenshot.png)
 
 ## Credits
 
