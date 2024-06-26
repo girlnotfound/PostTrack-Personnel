@@ -29,8 +29,8 @@ To install PostTrack Personnel:
 - Set up the PostgreSQL database:
 
   - Enter 'psql -U postgres' to open the PostgreSQL command line interface. If prompted, input your password.
-  - To set up the database, type \i schema.sql and press Enter.
-  - Next, type \i seeds.sql and press Enter to insert the seed data. Now your database is ready to use!
+  - To set up the database, type '\i schema.sql' and press Enter.
+  - Next, type '\i seeds.sql' and press Enter to insert the seed data. Now your database is ready to use!
 
 - Remove '.EXAMPLE' from the .env.EXAMPLE file renaming it to .env
 
