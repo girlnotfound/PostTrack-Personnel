@@ -20,13 +20,17 @@ PostTrack Personnel is a command-line application that allows users to manage th
 
 To install PostTrack Personnel:
 
-- Clone the repository: https://github.com/girlnotfound/PostTrack-Personnel/
+- Clone the repository: https://github.com/girlnotfound/PostTrack-Personnel
 
 - Navigate to the project directory
 
 - Open the terminal and install the dependencies by running the command: `npm install`
 
-- Set up the PostgreSQL database
+- Set up the PostgreSQL database:
+
+  - Enter 'psql -U postgres' to open the PostgreSQL command line interface. If prompted, input your password.
+  - To set up the database, type \i schema.sql and press Enter.
+  - Next, type \i seeds.sql and press Enter to insert the seed data. Now your database is ready to use!
 
 - Remove '.EXAMPLE' from the .env.EXAMPLE file renaming it to .env
 
